@@ -1,9 +1,9 @@
 /*
- * @Author: whyour
- * @Github: https://github.com/whyour
- * @Date: 2020-11-20 10:42:06
- * @LastEditors: whyour
- * @LastEditTime: 2020-11-30 13:12:39
+ * @Author: King-stark (取自whyour已移除脚本，为方便自己使用，重新上传到自己库中)
+ * @Github: https://github.com/King-stark
+ * @Date: 2020-12-20 07:59:00
+ * @LastEditors: King-stark
+ * @LastEditTime: 2020-12-20 13:12:39
  */
 const $ = new Env("互助码");
 const shareCodes = [
