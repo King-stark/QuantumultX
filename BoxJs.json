@@ -248,9 +248,9 @@
           "desc": "此处请填写你的京东CrazyJoy码"
         }	      
       ],
-      "author": "@photonmang",
-      "repo": "https://raw.githubusercontent.com/photonmang/quantumultX/master/cache/shareCode.js",
-      "script": "https://github.com/photonmang/quantumultX",
+      "author": "@King-stark",
+      "repo": "https://github.com/King-stark/QuantumultX/blob/master/shareCode.js",
+      "script": "https://raw.githubusercontent.com/King-stark/QuantumultX/master/shareCode.js",
       "icons": [ "https://raw.githubusercontent.com/Orz-3/mini/master/jd.png","https://raw.githubusercontent.com/Orz-3/task/master/jd.png"]
    }
   ]
