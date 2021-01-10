@@ -22,6 +22,7 @@ cron "15,20 10 1,10,20 * *" script-path=https://raw.githubusercontent.com/photon
 
 
 12.28  新增京东crazyjoy助力，请及时更新boxjs订阅进行添加joy助力码
+1.10   调整执行返回代码，改为状态码判断
 */
 
 
@@ -62,6 +63,7 @@ const  mc_shareCodeArr = [];
 const  joy_shareCodeArr = [];
 let K = 0;
 let tz='';
+let gg;
 const dd=1//单次任务延迟,默认1秒
 
 for (let index = 1; index <= 3; index++) {
@@ -75,7 +77,23 @@ for (let index = 1; index <= 3; index++) {
     mc_shareCodeArr.push($.getdata("mc_shareCode"+index));
     joy_shareCodeArr.push($.getdata("joy_shareCode"+index));
   }
-    console.log(`============ 共${dd_shareCodeArr.length}个京东账号  =============\n`)
+      if 
+	(dd_shareCodeArr.length &&
+	 jx_shareCodeArr.length &&
+	 zd_shareCodeArr.length &&
+	 nc_shareCodeArr.length &&
+	 mc_shareCodeArr.length &&
+	 joy_shareCodeArr.length >=1)
+      {
+	 gg=dd_shareCodeArr.length &&
+	 jx_shareCodeArr.length &&
+	 zd_shareCodeArr.length &&
+	 nc_shareCodeArr.length &&
+	 mc_shareCodeArr.length &&
+	 joy_shareCodeArr.length
+	}
+
+    console.log(`============ 共${gg}个京东账号  =============\n`)
 
 all();
 function all() {
@@ -148,7 +166,16 @@ function execdd_shareCode() {
     $.get(url,(err, resp, data)=> {  
       try {
         $.dd_shareCodeBody = data
-        tz += `东东工厂:`+resp.statusCode+`\n`
+	const obj = JSON.parse(data)
+                
+                if (obj.code == 200) {
+                    ddmsg = `提交成功`
+                } else if (obj.code == 400) {
+                    ddmsg = `代码已存在`
+                } else {
+                    ddmsg = '发生未知错误'
+                }
+        tz += `东东工厂:`+ ddmsg +`\n`
       } catch (e) {
         $.logErr(e, resp)
       } finally {
@@ -168,7 +195,16 @@ function execjx_shareCode() {
     $.get(url,(err, resp, data)=> {  
       try {
         $.jx_shareCodeBody = data
-        tz += `京喜工厂:`+resp.statusCode+`\n`
+	const obj = JSON.parse(data)
+                
+                if (obj.code == 200) {
+                    jxmsg = `提交成功`
+                } else if (obj.code == 400) {
+                    jxmsg = `代码已存在`
+                } else {
+                    jxmsg = '发生未知错误'
+                }
+        tz += `京喜工厂:`+ jxmsg +`\n`
       } catch (e) {
         $.logErr(e, resp)
       } finally {
@@ -188,7 +224,16 @@ function execzd_shareCode() {
     $.get(url,(err, resp, data)=> {  
       try {
         $.zd_shareCodeBody = data
-        tz += `种豆得豆:`+resp.statusCode+`\n`
+	const obj = JSON.parse(data)
+                
+                if (obj.code == 200) {
+                    zdmsg = `提交成功`
+                } else if (obj.code == 400) {
+                    zdmsg = `代码已存在`
+                } else {
+                    zdmsg = '发生未知错误'
+                }
+        tz += `种豆得豆:`+ zdmsg +`\n`
       } catch (e) {
         $.logErr(e, resp)
       } finally {
@@ -208,7 +253,16 @@ function execnc_shareCode() {
     $.get(url,(err, resp, data)=> {  
       try {
         $.nc_shareCodeBody = data
-        tz += `京东农场:`+ resp.statusCode+`\n`
+	const obj = JSON.parse(data)
+                
+                if (obj.code == 200) {
+                    ncmsg = `提交成功`
+                } else if (obj.code == 400) {
+                    ncmsg = `代码已存在`
+                } else {
+                    ncmsg = '发生未知错误'
+                }
+        tz += `京东农场:`+ ncmsg +`\n`
       } catch (e) {
         $.logErr(e, resp)
       } finally {
@@ -229,7 +283,16 @@ function execmc_shareCode() {
     $.get(url,(err, resp, data)=> {  
       try {
         $.mc_shareCodeBody = data
-        tz += `京东萌宠:`+ resp.statusCode+`\n`
+	const obj = JSON.parse(data)
+                
+                if (obj.code == 200) {
+                    mcmsg = `提交成功`
+                } else if (obj.code == 400) {
+                    mcmsg = `代码已存在`
+                } else {
+                    mcmsg = '发生未知错误'
+                }
+        tz += `京东萌宠:`+ mcmsg +`\n`
       } catch (e) {
         $.logErr(e, resp)
       } finally {
@@ -248,7 +311,16 @@ function execjoy_shareCode() {
     $.get(url,(err, resp, data)=> {  
       try {
         $.joy_shareCodeBody = data
-        tz += `京东CrazyJoy:`+ resp.statusCode+`\n`
+	const obj = JSON.parse(data)
+                
+                if (obj.code == 200) {
+                    joymsg = `提交成功`
+                } else if (obj.code == 400) {
+                    joymsg = `代码已存在`
+                } else {
+                    joymsg = '发生未知错误'
+                }
+        tz += `京东CrazyJoy:`+ joymsg +`\n`
       } catch (e) {
         $.logErr(e, resp)
       } finally {
