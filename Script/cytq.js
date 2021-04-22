@@ -4,6 +4,7 @@
  * 彩云天气 = type=http-response,requires-body=1,max-size=0,pattern=https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user),script-path= https://raw.githubusercontent.com/King-stark/QuantumultX/master/Script/cytq.js
  * QuantumultX    
  * https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user) url script-response-body https://raw.githubusercontent.com/King-stark/QuantumultX/master/Script/cytq.js
+ */
 
 const SCRIPT_NAME = '彩云天气';
 const USER_REGEX = /https?:\/\/biz\.caiyunapp\.com\/v2\/user/;
